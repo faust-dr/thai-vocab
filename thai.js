@@ -19,6 +19,9 @@ function evaluate(e) {
 	} else if(answerIsCorrect()) {
 		showPronunciation();
 		showCongrats();
+	} else {
+		hideCongrats();
+		hidePronunciation();
 	}
 
 	$(".hint").text("");	

@@ -11,7 +11,7 @@ numbers = [
 	{ english: "10", thai: "๑๐", pronunciation: "sip" }
 ]
 
-lowConsonants = [
+lowConsonants1 = [
 	{ english: "n", thai: "น", pronunciation: "no" },
 	{ english: "m", thai: "ม", pronunciation: "mo" },
 	{ english: "ng", thai: "ง", pronunciation: "ngo" },
@@ -21,7 +21,7 @@ lowConsonants = [
 	{ english: "w", thai: "ว", pronunciation: "wo" }
 ]
 
-midConsonants = [
+lowConsonants2 = [
 	{ english: "k", thai: "ค", pronunciation: "ko" },
 	{ english: "ch", thai: "ช", pronunciation: "cho" },
 	{ english: "s", thai: "ซ", pronunciation: "so" },
@@ -30,6 +30,16 @@ midConsonants = [
 	{ english: "f", thai: "ฟ", pronunciation: "fo" }
 ]
 
+midConsonants = [
+	{ english: "g", thai: "ก", pronunciation: "go" },
+	{ english: "j", thai: "จ", pronunciation: "jo" },
+	{ english: "d", thai: "ด", pronunciation: "do" },
+	{ english: "dt", thai: "ต", pronunciation: "dto" },
+	{ english: "b", thai: "บ", pronunciation: "bo" },
+	{ english: "bp", thai: "ป", pronunciation: "bpo" },
+	{ english: "o", thai: "อ", pronunciation: "oh" }
+]
+ 
 longVowels = [
 	{ english: "ah", thai: "-า", pronunciation: "ah" },
 	{ english: "am", thai: "- ำ", pronunciation: "am" },
@@ -41,7 +51,8 @@ longVowels = [
 
 list = [
 	numbers,
-	lowConsonants,
+	lowConsonants1,
+	lowConsonants2,
 	midConsonants,
 	longVowels
 ]
