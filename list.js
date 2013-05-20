@@ -71,6 +71,13 @@ vowels2 = [
 	{ english: "uh", thai: "- ู", pronunciation: "uh" }
 ]
  
+vowels3 = [
+	{ english: "ö", thai: "- ึ", pronunciation: "ö" },
+	{ english: "öh", thai: "- ื", pronunciation: "öh" },
+	{ english: "eh", thai: "เ-", pronunciation: "eh" },
+	{ english: "äh", thai: "แ-", pronunciation: "äh" }
+]
+
 list = [
 	numbers,
 	lowConsonants1,
@@ -78,11 +85,6 @@ list = [
 	midConsonants,
 	hiConsonants,
 	vowels1,
-	vowels2	
+	vowels2,
+	vowels3	
 ]
- 
- 
- 
- 
- 
- 
