@@ -21,17 +21,21 @@ function evaluate(e) {
 		showCongrats();
 	}
 
-	var answer = $("input.answer").val();
-
 	$(".hint").text("");	
 
-	var correctLetter = currentQuery.english.charAt(0);
-	var typedLetter = answer.charAt(0);
+	var correctAnswer = currentQuery.english;
+	var answer = $("input.answer").val();
+  var minLength = _.min([correctAnswer.length, answer.length]);	
 
-	if(correctLetter === typedLetter) {
-		add_hint_letter(correctLetter);
-	} else {
-		add_hint_letter("_");
+	for(i = 0; i < minLength; i++) {
+		var correctLetter = correctAnswer.charAt(i);
+		var typedLetter = answer.charAt(i);
+
+		if(correctLetter === typedLetter) {
+			add_hint_letter(correctLetter);
+		} else {
+			add_hint_letter("_");
+		}
 	}
 }
 
