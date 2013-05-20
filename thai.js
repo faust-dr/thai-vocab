@@ -26,7 +26,7 @@ function evaluate(e) {
 
 	$(".hint").text("");	
 
-	var correctAnswer = currentQuery.english;
+	var correctAnswer = currentQuery.german;
 	var answer = $("input.answer").val();
   var minLength = _.min([correctAnswer.length, answer.length]);	
 
@@ -47,7 +47,7 @@ function add_hint_letter(letter) {
 }
 
 function answerIsCorrect() {
-	return $(".answer").val() === currentQuery.english;
+	return $(".answer").val() === currentQuery.german;
 }
 
 function next() {
@@ -57,7 +57,7 @@ function next() {
 	$(".answer").val("");
 	$(".pronunciation").val("");
 	$(".thai").text(currentQuery.thai);
-	if(currentQuery.english) {
+	if(currentQuery.german) {
 		$(".instruction").text("Pronounce first, then type romanization:");
 	} else {
 		$(".instruction").text("Pronounce:");
