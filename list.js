@@ -21,7 +21,33 @@ lowConsonants = [
 	{ english: "w", thai: "ว", pronunciation: "wo" }
 ]
 
+midConsonants = [
+	{ english: "k", thai: "ค", pronunciation: "ko" },
+	{ english: "ch", thai: "ช", pronunciation: "cho" },
+	{ english: "s", thai: "ซ", pronunciation: "so" },
+	{ english: "t", thai: "ท", pronunciation: "to" },
+	{ english: "p", thai: "พ", pronunciation: "po" },
+	{ english: "f", thai: "ฟ", pronunciation: "fo" }
+]
+
+longVowels = [
+	{ english: "ah", thai: "-า", pronunciation: "ah" },
+	{ english: "am", thai: "- ำ", pronunciation: "am" },
+	{ english: "a", thai: " ั", pronunciation: "a" },
+	{ english: "oh", thai: "-อ", pronunciation: "oh" },
+	{ english: "ay", thai: "-าย", pronunciation: "ay" },
+	{ english: "ao", thai: "-าว", pronunciation: "ao" }
+]
+
 list = [
 	numbers,
-	lowConsonants
+	lowConsonants,
+	midConsonants,
+	longVowels
 ]
+ 
+ 
+ 
+ 
+ 
+ 
