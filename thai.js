@@ -6,15 +6,18 @@ function init() {
 	$("input.answer").focus();
 	$("input.answer").keyup(evaluate);
 	hideCongrats();
+	hidePronunciation();
 	next();
 }
 
 function evaluate(e) {
-	if (e.keyCode === 13 && correctAnswer()) {
+	if (e.keyCode === 13 && answerIsCorrect()) {
 		next();
 		hideCongrats();
+		hidePronunciation();
 		return;
-	} else if(correctAnswer()) {
+	} else if(answerIsCorrect()) {
+		showPronunciation();
 		showCongrats();
 	}
 
@@ -36,7 +39,7 @@ function add_hint_letter(letter) {
 	$(".hint").text($(".hint").text() + letter);	
 }
 
-function correctAnswer() {
+function answerIsCorrect() {
 	return $(".answer").val() === currentQuery.english;
 }
 
@@ -45,12 +48,23 @@ function next() {
 
 	$(".hint").text("");
 	$(".answer").val("");
-	$(".thai").text(currentQuery.thai + " " + currentQuery.romanization);
+	$(".pronunciation").val("");
+	$(".thai").text(currentQuery.thai);
+	if(currentQuery.english) {
+		$(".instruction").text("Pronounce first, then type romanization:");
+	} else {
+		$(".instruction").text("Pronounce:");
+	}
 }
 
 function randomizeQuery() {
-	var id = Math.floor(Math.random() * numbers.length);
-	return numbers[id];
+	var typeId = random(list.length);
+	var id = random(list[typeId].length);
+	return list[typeId][id];
+}
+
+function random(limit) {
+	return Math.floor(Math.random() * limit);
 }
 
 function showCongrats() {
@@ -59,4 +73,13 @@ function showCongrats() {
 
 function hideCongrats() {
 	$(".alert").addClass("hidden");
+}
+
+function showPronunciation() {
+	$(".pronunciation-container").removeClass("hidden");
+	$(".pronunciation").text(currentQuery.pronunciation);
+}
+
+function hidePronunciation() {
+	$(".pronunciation-container").addClass("hidden");
 }
