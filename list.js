@@ -52,7 +52,7 @@ hiConsonants = [
 	{ english: "h", thai: "ห", pronunciation: "ho (hi)" }
 ]
  
-longVowels = [
+vowels1 = [
 	{ english: "ah", thai: "-า", pronunciation: "ah" },
 	{ english: "am", thai: "- ำ", pronunciation: "am" },
 	{ english: "a", thai: " ั", pronunciation: "a" },
@@ -61,13 +61,24 @@ longVowels = [
 	{ english: "ao", thai: "-าว", pronunciation: "ao" }
 ]
 
+vowels2 = [
+	{ english: "ai", thai: "ไ-", pronunciation: "ai" },
+	{ english: "ai", thai: "ใ-", pronunciation: "ai" },
+	{ english: "oh", thai: "โ-", pronunciation: "oh" },
+	{ english: "i", thai: "- ิ", pronunciation: "i" },
+	{ english: "ih", thai: "- ีี", pronunciation: "ih" },
+	{ english: "u", thai: "- ุ", pronunciation: "u" },
+	{ english: "uh", thai: "- ู", pronunciation: "uh" }
+]
+ 
 list = [
 	numbers,
 	lowConsonants1,
 	lowConsonants2,
 	midConsonants,
-	longVowels,
-	hiConsonants
+	hiConsonants,
+	vowels1,
+	vowels2	
 ]
  
  
