@@ -78,6 +78,56 @@ vowels3 = [
 	{ german: "äh", thai: "แ-", pronunciation: "äh" }
 ]
 
+wordsChapter1 = [
+	{ english: "hello", thai: "สวัสดี", pronunciation: "sa-wat di" },
+	{ explanation: "(male polite particle)", thai: "ครับ", pronunciation: "krap" },
+	{ english: ["miss", "mrs", "mr", "ms", "you"], thai: "คุณ", pronunciation: "kun" },
+	{ explanation: "(female polite particle)", thai: "ค่ะ", pronunciation: "ka" },
+	{ english: "where are you going?", thai: "ไปไหน", pronunciation: "bpai nai?" },
+	{ english: "going out", thai: "ไปเที่ยว", pronunciation: "bpai ti-o" },
+	{ english: "going on business", thai: "ไปธุระ", pronunciation: "bpai tu-ra" },
+]
+
+wordsChapter2 = [
+	{ explanation: "I (male)", english: "i", thai: "ผม", pronunciation: "pom" },
+	{ english: ["to have first name", "first name"], thai: "ชื่อ", pronunciation: "chöh" },
+	{ english: "family name", thai: "นๅมสกุล", pronunciation: "nahm sa-gun" },
+	{ english: "to be", thai: "เป็น", pronunciation: "bpen" },
+	{ english: "person", thai: "คน", pronunciation: "kon" },
+	{ english: "english", thai: "อังกฤษ", pronunciation: "ang-grit" },
+	{ english: "to come from", thai: "มๅจๅก", pronunciation: "mah jahk" },
+	{ explanation: "I (female, formal)", english: "i", thai: "ดิฉัน", pronunciation: "di-chan" },
+	{ english: "thai person", thai: "คนไทย", pronunciation: "kon tai" },
+	{ english: "bangkok", thai: "กรุงเทพ?", pronunciation: "grung-tep" },
+	{ english: "the north", thai: "ภๅคเหนือ", pronunciation: "pahk nöh-a" },
+	{ english: "chiangmai", thai: "เชียงใหม", pronunciation: "chi-ang mai" },
+	{ english: "country", thai: "ประเทศ", pronunciation: "bpra-teht" },
+	{ english: "japan", thai: "ญี่ปุ่น", pronunciation: "yih-bpun" },
+	{ english: ["am not a", "is not a", "are not a"], thai: "ไม่ใช่", pronunciation: "mai chai" },
+	{ english: "what?", thai: "อะไร", pronunciation: "a-rai" },
+	{ english: "is that right?", thai: "ใช่ไหม", pronunciation: "chai mai?" },
+	{ explanation: "yes (to a 'chai mai?' question)", english: "yes", thai: "ใช่", pronunciation: "chai" },
+	{ english: "nation", thai: "ชๅติ", pronunciation: "chaht" },
+	{ explanation: "no (to a 'chai mai?' question)", english: "no", thai: "ไม่ใช่", pronunciation: "mai chai" },
+	{ explanation: "I (female, informal)", english: "i", thai: "ฉัน", pronunciation: "chan" },
+	{ english: ["he", "she", "they"], thai: "เขๅ", pronunciation: "kao" },
+	{ english: "we", thai: "เรๅ", pronunciation: "rao" },
+	{ english: "china", thai: "ประเทศจีน", pronunciation: "bpra-teht jihn" },
+	{ english: "thailand", thai: "ประเทสไทย", pronunciation: "bra-teht tai" },
+	{ english: "thailand", thai: "เมืองไทย", pronunciation: "möh-ang tai" },
+	{ english: "an english person", thai: "คนอังกฤษ", pronunciation: "kon ang-grit" },
+	{ english: "a northener", thai: "คนภๅคเหนือ", pronunciation: "kon pahk nöh-ah" },
+	{ english: "a person from chiangmai", thai: "คนเชียงใหม่", pronunciation: "kon chih-ang mai" },
+	{ english: "the central region", thai: "ภๅคกลๅง", pronunciation: "pahk glahng" },
+	{ english: "the south", thai: "ภๅคใต้", pronunciation: "pahk dtai" },
+	{ english: "the north", thai: "ภๅคเหนือ", pronunciation: "pahk nöh-ah" },
+	{ english: "the northeast", thai: "ภๅคอีสๅน", pronunciation: "pahk ih-sahn" },
+]
+
+template = [
+	{ english: "", thai: "", pronunciation: "" },
+]
+
 list = [
 	numbers,
 	lowConsonants1,
@@ -86,5 +136,7 @@ list = [
 	hiConsonants,
 	vowels1,
 	vowels2,
-	vowels3	
+	vowels3,
+	wordsChapter1,
+	wordsChapter2
 ]

@@ -1,12 +1,15 @@
 $(document).ready(init);
 
 var currentQuery;
+var correctAnswer;
+var answerExplained;
 
 function init() {
 	$("input.answer").focus();
 	$("input.answer").keyup(evaluate);
 	hideCongrats();
 	hidePronunciation();
+	hideExplanation();
 	next();
 }
 
@@ -15,43 +18,83 @@ function evaluate(e) {
 		next();
 		hideCongrats();
 		hidePronunciation();
+		hideExplanation();
 		return;
-	} else if(answerIsCorrect()) {
+	} else if(!correctAnswer && e.keyCode === 13) {
+		showExplanation();
+		answerExplained = true;
+	} else if(correctAnswer && answerIsCorrect()) {
 		showPronunciation();
 		showCongrats();
-	} else {
+		showHints();
+	} else if(correctAnswer) {
 		hideCongrats();
 		hidePronunciation();
-	}
-
-	$(".hint").text("");	
-
-	var correctAnswer = currentQuery.german;
-	var answer = $("input.answer").val();
-  var minLength = _.min([correctAnswer.length, answer.length]);	
-
-	for(i = 0; i < minLength; i++) {
-		var correctLetter = correctAnswer.charAt(i);
-		var typedLetter = answer.charAt(i);
-
-		if(correctLetter === typedLetter) {
-			add_hint_letter(correctLetter);
-		} else {
-			add_hint_letter("_");
-		}
+		showHints();
 	}
 }
 
-function add_hint_letter(letter) {
-	$(".hint").text($(".hint").text() + letter);	
+function showHints() {
+	$(".hint").text("");	
+
+	var answer = $("input.answer").val();
+	var hint = getHintText(correctAnswer, answer);
+
+	$(".hint").text(hint);	
+}
+
+function getHintText(correctAnswer, answer) {
+	var text = "";
+
+	for(i = 0; i < answer.length; i++) {
+		var correctLetters = getCorrectLetters(correctAnswer, i);
+		var typedLetter = answer.charAt(i);
+		if(_.contains(correctLetters, typedLetter)) {
+			text += typedLetter;
+		} else {
+			text += '_';
+		}
+	}
+
+	return text;
+}
+
+// TODO: once you go down one branch, stick to that word: MISS and YOU ok, MOSS not ok!
+function getCorrectLetters(correctAnswers, i) {
+	if(typeof correctAnswers === "string") {
+		return [correctAnswers.charAt(i)];
+	}
+
+	return _.flatten(_.map(correctAnswers, function(items) {
+		return getCorrectLetters(items, i);
+	}));
 }
 
 function answerIsCorrect() {
-	return $(".answer").val() === currentQuery.german;
+	var answer = $(".answer").val();
+	return answerExplainedRec(correctAnswer, answer);
+}
+
+function answerExplainedRec(correctAnswer, answer) {
+	if(!correctAnswer && answerExplained) {
+		return true;
+	}
+
+	if(typeof correctAnswer === "string") {
+		return answer === correctAnswer;
+	}
+
+	return _.find(correctAnswer, function(item) {
+		if(answerExplainedRec(item, answer)) {
+			return true;
+		}
+	});
 }
 
 function next() {
 	currentQuery = randomizeQuery();
+	correctAnswer = currentQuery.german || currentQuery.english;
+	answerExplained = false;
 
 	$(".hint").text("");
 	$(".answer").val("");
@@ -59,8 +102,10 @@ function next() {
 	$(".thai").text(currentQuery.thai);
 	if(currentQuery.german) {
 		$(".instruction").text("Pronounce first, then type romanization:");
+	} else if(currentQuery.english) {
+		$(".instruction").text("Pronounce first, then type translation:");
 	} else {
-		$(".instruction").text("Pronounce:");
+		$(".instruction").text("Pronounce, then hit enter:");
 	}
 }
 
@@ -75,11 +120,20 @@ function random(limit) {
 }
 
 function showCongrats() {
-	$(".alert").removeClass("hidden");
+	$(".congrats").removeClass("hidden");
 }
 
 function hideCongrats() {
-	$(".alert").addClass("hidden");
+	$(".congrats").addClass("hidden");
+}
+
+function showExplanation() {
+	$(".explanation p").text(currentQuery.pronunciation + " " + currentQuery.explanation);
+	$(".explanation").removeClass("hidden");
+}
+
+function hideExplanation() {
+	$(".explanation").addClass("hidden");
 }
 
 function showPronunciation() {
