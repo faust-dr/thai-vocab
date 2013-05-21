@@ -3,14 +3,42 @@ $(document).ready(init);
 var currentQuery;
 var correctAnswer;
 var answerExplained;
+var list;
 
 function init() {
+	setupLessonCheckboxes();
+	generateLessonList();
+
 	$("input.answer").focus();
 	$("input.answer").keyup(evaluate);
 	hideCongrats();
 	hidePronunciation();
 	hideExplanation();
 	next();
+}
+
+function generateLessonList() {
+	var activeLessons = _.compact(_.map($(".lessons .lesson input"), function(lessonSelector) {
+		return lessonSelector.checked && lessonSelector.name;
+	}));
+
+	console.log(activeLessons);
+	list = _.compact(_.map(everyLesson, function(lesson) {
+		if(_.contains(activeLessons, lesson.name)) {
+			return lesson.contents;
+		}
+	}));
+}
+
+function setupLessonCheckboxes() {
+	_.each(everyLesson, function(lesson) {
+		$(".lessons").append('<div class="lesson"><input type="checkbox" name="' + lesson.name + '" checked="true">' + lesson.name + '</div>');
+	});
+
+	$(".lessons .lesson input").click(function(e) {
+		generateLessonList();
+		next();
+	});
 }
 
 function evaluate(e) {
@@ -114,6 +142,10 @@ function next() {
 }
 
 function randomizeQuery() {
+	if(list.length <= 0) {
+		return { thai: "Selected lessons contain no words." };
+	}
+
 	var typeId = random(list.length);
 	var id = random(list[typeId].length);
 	return list[typeId][id];

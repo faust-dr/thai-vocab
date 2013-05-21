@@ -128,15 +128,15 @@ template = [
 	{ english: "", thai: "", pronunciation: "" },
 ]
 
-list = [
-	numbers,
-	lowConsonants1,
-	lowConsonants2,
-	midConsonants,
-	hiConsonants,
-	vowels1,
-	vowels2,
-	vowels3,
-	wordsChapter1,
-	wordsChapter2
+everyLesson = [
+	{ name: "Numbers", contents: numbers },
+	{ name: "Low consonants 1", contents: lowConsonants1 },
+	{ name: "Low consonants 2", contents: lowConsonants2 },
+	{ name: "Mid consonants", contents: midConsonants },
+	{ name: "High consonants", contents: hiConsonants },
+	{ name: "Vowels 1", contents: vowels1 },
+	{ name: "Vowels 2", contents: vowels2 },
+	{ name: "Vowels 3", contents: vowels3 },
+	{ name: "Words from chapter 1", contents: wordsChapter1 },
+	{ name: "Words from chapter 2", contents: wordsChapter2 },
 ]

@@ -71,3 +71,13 @@ input.answer {
 h1 {
 	padding-bottom: 10px;
 }
+
+.lessons .lesson {
+	display: inline-block;
+	padding: 5px;
+	margin-right: 15px;
+}
+
+.lessons .lesson input {
+	margin-right: 5px;
+}
