@@ -47,7 +47,7 @@ function getHintText(correctAnswer, answer) {
 	var text = "";
 
 	for(i = 0; i < answer.length; i++) {
-		var correctLetters = getCorrectLetters(correctAnswer, i);
+		var correctLetters = getCorrectLetters(correctAnswer, i, answer);
 		var typedLetter = answer.charAt(i);
 		if(_.contains(correctLetters, typedLetter)) {
 			text += typedLetter;
@@ -59,15 +59,19 @@ function getHintText(correctAnswer, answer) {
 	return text;
 }
 
-// TODO: once you go down one branch, stick to that word: MISS and YOU ok, MOSS not ok!
-function getCorrectLetters(correctAnswers, i) {
+function getCorrectLetters(correctAnswers, i, answer) {
 	if(typeof correctAnswers === "string") {
+		for(j = 0; j < i ; j++) {
+			if(correctAnswers.charAt(j) != answer.charAt(j)) {
+				return false;
+			}
+		}
 		return [correctAnswers.charAt(i)];
 	}
 
-	return _.flatten(_.map(correctAnswers, function(items) {
-		return getCorrectLetters(items, i);
-	}));
+	return _.compact(_.flatten(_.map(correctAnswers, function(items) {
+		return getCorrectLetters(items, i, answer);
+	})));
 }
 
 function answerIsCorrect() {
