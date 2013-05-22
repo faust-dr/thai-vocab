@@ -51,6 +51,14 @@ lowConsonants2 = [
 	{ german: "f", thai: "ฟ", pronunciation: "fo (low)" }
 ]
 
+lowConsonants3 = [
+	{ german: "k", thai: "ฆ", pronunciation: "ko (low)" },
+	{ german: "t", thai: "ธ", pronunciation: "to (low)" },
+	{ german: "p", thai: "ภ", pronunciation: "po (low)" },
+	{ german: "y", thai: "ญ", pronunciation: "yo (low)" },
+	{ german: "n", thai: "ณ", pronunciation: "no (low)" },
+]
+
 midConsonants = [
 	{ german: "g", thai: "ก", pronunciation: "go (mid)" },
 	{ german: "j", thai: "จ", pronunciation: "jo (mid)" },
@@ -99,6 +107,15 @@ vowels3 = [
 	{ german: "äh", thai: "แ-", pronunciation: "äh" }
 ]
 
+vowels4 = [
+	{ german: "ao", thai: "เ-า", pronunciation: "-ao" },
+	{ german: "ia", thai: "เ-ีย", pronunciation: "-ihya" },
+	{ german: "öa", thai: "เ-ือ", pronunciation: "-ööa" },
+	{ german: "ua", thai: "-ัว", pronunciation: "-uua" },
+	{ german: "öh", thai: "เ-ิ", pronunciation: "-öh" },
+	{ german: "a", thai: "-ะ", pronunciation: "-a"  },
+]
+
 wordsChapter1 = [
 	{ english: "hello", thai: "สวัสดี", pronunciation: "sa-wat di" },
 	{ explanation: "(male polite particle)", thai: "ครับ", pronunciation: "krap" },
@@ -112,15 +129,15 @@ wordsChapter1 = [
 wordsChapter2 = [
 	{ explanation: "I (male)", english: "i", thai: "ผม", pronunciation: "pom" },
 	{ english: ["to have first name", "first name"], thai: "ชื่อ", pronunciation: "chöh" },
-	{ english: "family name", thai: "นๅมสกุล", pronunciation: "nahm sa-gun" },
-	{ english: "to be", thai: "เป็น", pronunciation: "bpen" },
+	{ english: "family name", thai: "นามสกุล", pronunciation: "nahm sa-gun" },
+	{ explanation: "(before noun)", english: "to be", thai: "เป็น + NOUN", pronunciation: "bpen" },
 	{ english: "person", thai: "คน", pronunciation: "kon" },
 	{ english: "english", thai: "อังกฤษ", pronunciation: "ang-grit" },
-	{ english: "to come from", thai: "มๅจๅก", pronunciation: "mah jahk" },
+	{ english: "to come from", thai: "มาจาก", pronunciation: "mah jahk" },
 	{ explanation: "I (female, formal)", english: "i", thai: "ดิฉัน", pronunciation: "di-chan" },
 	{ english: "thai person", thai: "คนไทย", pronunciation: "kon tai" },
 	{ english: "bangkok", thai: "กรุงเทพ?", pronunciation: "grung-tep" },
-	{ english: "the north", thai: "ภๅคเหนือ", pronunciation: "pahk nöh-a" },
+	{ english: "the north", thai: "ภาคเหนือ", pronunciation: "pahk nöh-a" },
 	{ english: "chiangmai", thai: "เชียงใหม", pronunciation: "chi-ang mai" },
 	{ english: "country", thai: "ประเทศ", pronunciation: "bpra-teht" },
 	{ english: "japan", thai: "ญี่ปุ่น", pronunciation: "yih-bpun" },
@@ -128,25 +145,25 @@ wordsChapter2 = [
 	{ english: "what?", thai: "อะไร", pronunciation: "a-rai" },
 	{ english: "is that right?", thai: "ใช่ไหม", pronunciation: "chai mai?" },
 	{ explanation: "yes (to a 'chai mai?' question)", english: "yes", thai: "ใช่", pronunciation: "chai" },
-	{ english: "nation", thai: "ชๅติ", pronunciation: "chaht" },
+	{ english: "nation", thai: "ชาติ", pronunciation: "chaht" },
 	{ explanation: "no (to a 'chai mai?' question)", english: "no", thai: "ไม่ใช่", pronunciation: "mai chai" },
 	{ explanation: "I (female, informal)", english: "i", thai: "ฉัน", pronunciation: "chan" },
-	{ english: ["he", "she", "they"], thai: "เขๅ", pronunciation: "kao" },
-	{ english: "we", thai: "เรๅ", pronunciation: "rao" },
+	{ english: ["he", "she", "they"], thai: "เขา", pronunciation: "kao" },
+	{ english: "we", thai: "เรา", pronunciation: "rao" },
 	{ english: "china", thai: "ประเทศจีน", pronunciation: "bpra-teht jihn" },
 	{ english: "thailand", thai: "ประเทสไทย", pronunciation: "bra-teht tai" },
 	{ english: "thailand", thai: "เมืองไทย", pronunciation: "möh-ang tai" },
 	{ english: "an english person", thai: "คนอังกฤษ", pronunciation: "kon ang-grit" },
-	{ english: "a northener", thai: "คนภๅคเหนือ", pronunciation: "kon pahk nöh-ah" },
+	{ english: "a northener", thai: "คนภาคเหนือ", pronunciation: "kon pahk nöh-ah" },
 	{ english: "a person from chiangmai", thai: "คนเชียงใหม่", pronunciation: "kon chih-ang mai" },
-	{ english: "the central region", thai: "ภๅคกลๅง", pronunciation: "pahk glahng" },
-	{ english: "the south", thai: "ภๅคใต้", pronunciation: "pahk dtai" },
-	{ english: "the north", thai: "ภๅคเหนือ", pronunciation: "pahk nöh-ah" },
-	{ english: "the northeast", thai: "ภๅคอีสๅน", pronunciation: "pahk ih-sahn" },
+	{ english: "the central region", thai: "ภาคกลาง", pronunciation: "pahk glahng" },
+	{ english: "the south", thai: "ภาคใต้", pronunciation: "pahk dtai" },
+	{ english: "the north", thai: "ภาคเหนือ", pronunciation: "pahk nöh-ah" },
+	{ english: "the northeast", thai: "ภาคอีสาน", pronunciation: "pahk ih-sahn" },
 ]
 
 wordsChapter3 = [
-	{ english: "to work", thai: "ทำงๅน", pronunciation: "tam ngahn" },
+	{ english: "to work", thai: "ทำงาน", pronunciation: "tam ngahn" },
 	{ english: "where?", thai: "ที่ไหน", pronunciation: "tih nai" },
 	{ english: "at", thai: "ที่", pronunciation: "tih " },
 	{ english: "businessman", thai: "นักธุรกิจ", pronunciation: "nak tu-ra-git" },
@@ -156,12 +173,46 @@ wordsChapter3 = [
 	{ english: ["to be located at", "to be located in", "to be located on"], thai: "อยู่(ที่)", pronunciation: "yuh (tih)" },
 	{ english: "sukhumwit road", thai: "ถนนสุขุมวิท", pronunciation: "ta-non su-kum-wit" },
 	{ english: "to teach", thai: "สอน", pronunciation: "sohn" },
-	{ english: "university", thai: "มหๅวิทยๅลัย", pronunciation: "ma-hah wit-ta-yah-lai" },
+	{ english: "university", thai: "มหาวิทยาลัย", pronunciation: "ma-hah wit-ta-yah-lai" },
 	{ english: ["locality", "vicinity"], thai: "แถว", pronunciation: "täh-o" },
-	{ english: "student", thai: "นักศึกษๅ", pronunciation: "nak sök-sah" },
+	{ english: "student", thai: "นักศึกษา", pronunciation: "nak sök-sah" },
 	{ english: "to study", thai: "เรียน", pronunciation: "rih-yan" },
-	{ explanation: "(University)", english: "thammasat", thai: "ธรรมศๅสตร์", pronunciation: "tam-ma-saht" },
-	{ explanation: "(area of Bangkok, original Thammasat campus)", english: "ta prachan", thai: "ท่ๅพระจันทร์", pronunciation: "tah pra jan" },
+	{ explanation: "(University)", english: "thammasat", thai: "ธรรมศาสตร์", pronunciation: "tam-ma-saht" },
+	{ explanation: "(area of Bangkok, original Thammasat campus)", english: "ta prachan", thai: "ท่าพระจันทร์", pronunciation: "tah pra jan" },
+]
+
+wordsChapter9 = [
+	{ english: "menu", thai: "เมนู", pronunciation: "may-nuh" },
+	{ english: "like to", thai: "อยากจะ", pronunciation: "yahk ja" },
+	{ explanation: "(formal)", english: "to eat", thai: "ทาน", pronunciation: "tahn" },
+	{ english: "to get someone to do something", thai: "ให้", pronunciation: "hai" },
+	{ english: "better", thai: "ดีกว่า", pronunciation: "dih gwah" },
+	{ english: "food", thai: "อาหาร", pronunciation: "ah-hahn" },
+	{ explanation: "(after verb)", english: "to be able to", thai: "VERB + เป็น", pronunciation: "bpen" },
+	{ english: "if", thai: "ถ้า", pronunciation: "tah" },
+	{ explanation: "(way of addressing a younger waiter/waitress)", english: ["waiter", "waitress"], thai: "น้อง", pronunciation: "nohng" },
+	{ english: "chicken fried with ginger", thai: "ไก่ผัดขิง", pronunciation: "gai pat king" },
+	{ english: "mixed fried vegetables", thai: "ผัดผักรวมมิตร", pronunciation: "pat pak ruh-am mit" },
+	{ english: "tom yam", thai: "ต้มยำ", pronunciation: "dtom yam" },
+	{ english: "too", thai: "ด้วย", pronunciation: "doo-y" },
+	{ explanation: "(polite, male speaker)", english: "yes", thai: "ครับผม", pronunciation: "krap pom" },
+	{ english: "plain water", thai: "น้ำเปล่า", pronunciation: "nahm bplao" },
+	{ english: "and how about", thai: "แล้ว ... ล่ะ", pronunciation: "läh-o la" },
+	{ explanation: "(in restaurant: 'to have', as in 'what will you have')", english: ["receive", "take"], thai: "รับ", pronunciation: "rap" },
+	{ english: ["cake", "dessert"], thai: "ขนม", pronunciation: "ka-nom" },
+	{ english: "to be full", thai: "อ่ิม", pronunciation: "im" },
+	{ english: "already", thai: "แล้ว", pronunciation: "läh-o" },
+	{ english: "to be sweet", thai: "หวาน", pronunciation: "wahn" },
+	{ english: "not ... at all", thai: "ไม่...เลย", pronunciation: "mai ... leh-y" },
+	{ english: "in that case", thai: "งัน", pronunciation: "ngahn" },
+	{ explanation: "(informal)", english: "to eat", thai: "กิน", pronunciation: "gin" },
+	{ english: "alone", thai: "คนเดียว", pronunciation: "kon di-yo" },
+	{ english: "to smoke", thai: "สูบ", pronunciation: "suhp" },
+	{ english: "cigarette", thai: "บุหรี่", pronunciation: "bu-rih" },
+	{ english: "to give up", thai: "เลิก", pronunciation: "lehk" },
+	{ english: "to be good at", thai: "เก่ง", pronunciation: "geng" },
+	{ english: "to be stressed", thai: "เครียด", pronunciation: "krih-yat" },
+	{ english: "can i have the bill?", thai: "เช็คบิลด้วย", pronunciation: "chek bin duh-y" },
 ]
 
 template = [
@@ -173,12 +224,15 @@ everyLesson = [
  	{ name: "Numbers 20-100", contents: numbers2 },
 	{ name: "Low consonants 1", contents: lowConsonants1 },
 	{ name: "Low consonants 2", contents: lowConsonants2 },
+	{ name: "Low consonants 3", contents: lowConsonants3 },
 	{ name: "Mid consonants", contents: midConsonants },
 	{ name: "High consonants", contents: hiConsonants },
 	{ name: "Vowels 1", contents: vowels1 },
 	{ name: "Vowels 2", contents: vowels2 },
 	{ name: "Vowels 3", contents: vowels3 },
+	{ name: "Vowels 4", contents: vowels4 },
 	{ name: "Words from chapter 1", contents: wordsChapter1 },
 	{ name: "Words from chapter 2", contents: wordsChapter2 },
 	{ name: "Words from chapter 3", contents: wordsChapter3 },
+	{ name: "Words from chapter 9", contents: wordsChapter9 },
 ]
