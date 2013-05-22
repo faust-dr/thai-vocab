@@ -1,4 +1,4 @@
-numbers = [
+numbers1 = [
 	{ german: "1", thai: "๑", pronunciation: "nüng" },
 	{ german: "2", thai: "๒", pronunciation: "song" },
 	{ german: "3", thai: "๓", pronunciation: "sahm" },
@@ -9,6 +9,27 @@ numbers = [
 	{ german: "8", thai: "๘", pronunciation: "bäht" },
 	{ german: "9", thai: "๙", pronunciation: "gao" },
 	{ german: "10", thai: "๑๐", pronunciation: "sip" }
+]
+
+numbers2 = [
+	{ german: "20", thai: "๒๐", pronunciation: "yih-sip" },
+	{ german: "30", thai: "๓๐", pronunciation: "sahm-sip" },
+	{ german: "40", thai: "๔๐", pronunciation: "sih-sip" },
+	{ german: "50", thai: "๕๐", pronunciation: "hah-sip" },
+	{ german: "60", thai: "๖๐", pronunciation: "hok-sip" },
+	{ german: "70", thai: "๗๐", pronunciation: "jet-sip" },
+	{ german: "80", thai: "๘๐", pronunciation: "bäht-sip" },
+	{ german: "90", thai: "๙๐", pronunciation: "gao-sip" },
+	{ german: "100", thai: "๑๐๐", pronunciation: "(nühng) roy" },
+	{ german: "21", thai: "๒๑", pronunciation: "yih-sip et" },
+	{ german: "22", thai: "๒๒", pronunciation: "yih-sip song" },
+	{ german: "23", thai: "๒๓", pronunciation: "yee-sip sahm" },
+	{ german: "31", thai: "๓๑", pronunciation: "sahm-sip et" },
+	{ german: "32", thai: "๓๒", pronunciation: "sahm-sip song" },
+	{ german: "41", thai: "๔๑", pronunciation: "sih-sip et" },
+	{ german: "91", thai: "๙๑", pronunciation: "gao-sip et" },
+	{ german: "101", thai: "๑๐๑", pronunciation: "(nühng) roy et" },
+	{ german: "102", thai: "๑๐๒", pronunciation: "(nühng) roy song" },
 ]
 
 lowConsonants1 = [
@@ -124,12 +145,32 @@ wordsChapter2 = [
 	{ english: "the northeast", thai: "ภๅคอีสๅน", pronunciation: "pahk ih-sahn" },
 ]
 
+wordsChapter3 = [
+	{ english: "to work", thai: "ทำงๅน", pronunciation: "tam ngahn" },
+	{ english: "where?", thai: "ที่ไหน", pronunciation: "tih nai" },
+	{ english: "at", thai: "ที่", pronunciation: "tih " },
+	{ english: "businessman", thai: "นักธุรกิจ", pronunciation: "nak tu-ra-git" },
+	{ english: "office", thai: "ออฟฟิศ", pronunciation: "of-fiss" },
+	{ explanation: "(possessive)", english: "of", thai: "ของ", pronunciation: "kohng" },
+	{ explanation: "(male speaker)", english: "my", thai: "ของผม", pronunciation: "kohng pom" },
+	{ english: ["to be located at", "to be located in", "to be located on"], thai: "อยู่(ที่)", pronunciation: "yuh (tih)" },
+	{ english: "sukhumwit road", thai: "ถนนสุขุมวิท", pronunciation: "ta-non su-kum-wit" },
+	{ english: "to teach", thai: "สอน", pronunciation: "sohn" },
+	{ english: "university", thai: "มหๅวิทยๅลัย", pronunciation: "ma-hah wit-ta-yah-lai" },
+	{ english: ["locality", "vicinity"], thai: "แถว", pronunciation: "täh-o" },
+	{ english: "student", thai: "นักศึกษๅ", pronunciation: "nak sök-sah" },
+	{ english: "to study", thai: "เรียน", pronunciation: "rih-yan" },
+	{ explanation: "(University)", english: "thammasat", thai: "ธรรมศๅสตร์", pronunciation: "tam-ma-saht" },
+	{ explanation: "(area of Bangkok, original Thammasat campus)", english: "ta prachan", thai: "ท่ๅพระจันทร์", pronunciation: "tah pra jan" },
+]
+
 template = [
 	{ english: "", thai: "", pronunciation: "" },
 ]
 
 everyLesson = [
-	{ name: "Numbers", contents: numbers },
+	{ name: "Numbers 1-10", contents: numbers1 },
+ 	{ name: "Numbers 20-100", contents: numbers2 },
 	{ name: "Low consonants 1", contents: lowConsonants1 },
 	{ name: "Low consonants 2", contents: lowConsonants2 },
 	{ name: "Mid consonants", contents: midConsonants },
@@ -139,4 +180,5 @@ everyLesson = [
 	{ name: "Vowels 3", contents: vowels3 },
 	{ name: "Words from chapter 1", contents: wordsChapter1 },
 	{ name: "Words from chapter 2", contents: wordsChapter2 },
+	{ name: "Words from chapter 3", contents: wordsChapter3 },
 ]

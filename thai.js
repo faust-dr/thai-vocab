@@ -22,7 +22,6 @@ function generateLessonList() {
 		return lessonSelector.checked && lessonSelector.name;
 	}));
 
-	console.log(activeLessons);
 	list = _.compact(_.map(everyLesson, function(lesson) {
 		if(_.contains(activeLessons, lesson.name)) {
 			return lesson.contents;
@@ -47,17 +46,24 @@ function evaluate(e) {
 		hideCongrats();
 		hidePronunciation();
 		hideExplanation();
-		return;
+		hideAlternateMeanings();
 	} else if(!correctAnswer && e.keyCode === 13) {
 		showExplanation();
+		showPronunciation();
+		showAlternateMeanings();
+		showCongrats();
 		answerExplained = true;
 	} else if(correctAnswer && answerIsCorrect()) {
+		showExplanation();
 		showPronunciation();
+		showAlternateMeanings();
 		showCongrats();
 		showHints();
 	} else if(correctAnswer) {
 		hideCongrats();
 		hidePronunciation();
+		hideExplanation();
+		hideAlternateMeanings();
 		showHints();
 	}
 }
@@ -164,12 +170,34 @@ function hideCongrats() {
 }
 
 function showExplanation() {
-	$(".explanation p").text(currentQuery.pronunciation + " " + currentQuery.explanation);
+	if(!currentQuery.explanation) {
+		return;
+	}
+
+	$(".explanation p").text(currentQuery.explanation);
 	$(".explanation").removeClass("hidden");
 }
 
 function hideExplanation() {
 	$(".explanation").addClass("hidden");
+}
+
+function showAlternateMeanings() {
+	if(typeof correctAnswer === "string") {
+		return;
+	}
+
+	$(".alternate-meanings").text('Also means:');
+
+	_.each(correctAnswer, function(answer) {
+		$(".alternate-meanings").append('<li>' + answer + '</li>');
+	});
+
+	$(".alternate-meanings").removeClass("hidden");
+}
+
+function hideAlternateMeanings() {
+	$(".alternate-meanings").addClass("hidden");
 }
 
 function showPronunciation() {
