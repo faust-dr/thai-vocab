@@ -183,7 +183,7 @@ function hideExplanation() {
 }
 
 function showAlternateMeanings() {
-	if(typeof correctAnswer === "string") {
+	if(!correctAnswer || typeof correctAnswer === "string") {
 		return;
 	}
 

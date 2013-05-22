@@ -32,6 +32,21 @@ numbers2 = [
 	{ german: "102", thai: "๑๐๒", pronunciation: "(nühng) roy song" },
 ]
 
+numbers3 = [
+	{ german: "100", thai: "๑๐๐", pronunciation: "(nühng) roy" },
+	{ german: "101", thai: "๑๐๑", pronunciation: "(nühng) roy et" },
+	{ german: "102", thai: "๑๐๒", pronunciation: "(nühng) roy song" },
+	{ german: "103", thai: "๑๐๓", pronunciation: "(nühng) roy sahm" },
+	{ german: "200", thai: "๒๐๐", pronunciation: "song roy" },
+	{ german: "300", thai: "๓๐๐", pronunciation: "sahm roy" },
+	{ german: "1000", thai: "๑๐๐๐", pronunciation: "(nühng) pan" },
+	{ german: "2000", thai: "๒๐๐๐", pronunciation: "song pan" },
+	{ german: "10000", thai: "๑๐๐๐๐", pronunciation: "(nühng) möhn" },
+	{ german: "20000", thai: "๒๐๐๐๐", pronunciation: "song möhn" },
+	{ german: "100000", thai: "๑๐๐๐๐๐", pronunciation: "(nühng) sähn" },
+	{ german: "1000000", thai: "๑๐๐๐๐๐๐", pronunciation: "(nühng) lahn" },
+]
+
 lowConsonants1 = [
 	{ german: "n", thai: "น", pronunciation: "no (low)" },
 	{ german: "m", thai: "ม", pronunciation: "mo (low)" },
@@ -181,6 +196,49 @@ wordsChapter3 = [
 	{ explanation: "(area of Bangkok, original Thammasat campus)", english: "ta prachan", thai: "ท่าพระจันทร์", pronunciation: "tah pra jan" },
 ]
 
+wordsChapter4 = [
+	{ english: "excuse me", thai: "ขอโทษ", pronunciation: "kao-toht" },
+	{ english: ["this area", "this vicinity", "around here"], thai: "แถวนี้", pronunciation: "täh-o nih" },
+	{ english: ["there is", "there are", "to have"], thai: "มี", pronunciation: "mih" },
+	{ explanation: "(question particle in yes/no questions)", thai: "ไหม", pronunciation: "mai?" },
+	{ english: "service", thai: "บริการ", pronunciation: "bor-ri-gahn" },
+	{ english: ["floor", "storey"], thai: "ชั้น", pronunciation: "chan" },
+	{ english: "thank you", thai: "ขอบคุร", pronunciation: "kap-kun" },
+	{ english: "you're welcome", thai: "ไม่เป็นไร", pronunciation: "mai bpen rai" },
+
+	{ english: "post office", thai: "ไปรษณีย์", pronunciation: "bprai-sa-nih" },
+	{ explanation: "(confirmation-seeking question particle, 'eh?')", english: "eh?", thai: "หรือ", pronunciation: "lea?" },
+	{ english: "over there", thai: "ที่โน่น", pronunciation: "tih nohn" },
+	{ english: "near", thai: "ใกล้", pronunciation: "glai" },
+	{ english: "bank", thai: "ธนาคาร", pronunciation: "ta-na-kahn" },
+	{ english: "far", thai: "ไกล", pronunciation: "glai" },
+	{ english: "not ... at all", thai: "ไม่ ... หรอก", pronunciation: "mai ... roak" },
+	{ english: "to walk", thai: "เดิน", pronunciation: "dehn" },
+	{ english: "to go", thai: "ไป", pronunciation: "bpai" },
+	{ english: "minute", thai: "นาที", pronunciation: "nah-tih" },
+	{ english: "only", thai: "เท่านั้น", pronunciation: "tao-nan" },
+	{ english: ["much", "many"], thai: "มาก", pronunciation: "mahk" },
+]
+
+wordsChapter5 = [
+	{ explanation: "(Bangkok's main airport)", english: "suvarnabhumi", thai: "สุวรรณภูมิ", pronunciation: "su-wan-na-puhm" },
+	{ english: "how much?", thai: "เท่าไหร่", pronunciation: "tao-rai?" },
+	{ english: "(Bangkok's main railway station)", thai: "หัวลำโพง", pronunciation: "huh-a lam-pohng" },
+	{ english: ["no", "not"], thai: "ไม่", pronunciation: "mai" },
+	{ english: "car", thai: "รถ", pronunciation: "rot" },
+	{ english: ["to stick", "to be stuck"], thai: "ติด", pronunciation: "dtit" },
+	{ english: ["traffic jam", "the traffic is jammed"], thai: "รถติด", pronunciation: "rot dtit" },
+	{ english: "airport", thai: "สนามบิน", pronunciation: "sa-nahm bin" },
+	{ english: "can you", thai: "... ได้ไหม", pronunciation: "... dai mai?" },
+	{ english: "can't", thai: "ไม่ได้", pronunciation: "mai dai" },
+	{ english: "expensive", thai: "แพง", pronunciation: "pähng" },
+	{ english: "railway station", thai: "สถานีรถไฟ", pronunciation: "sa-ah-nih rot fai" },
+	{ english: "cost", thai: "ค่า", pronunciation: "kah" },
+	{ english: "petrol", thai: "น้ำมัน", pronunciation: "nam man" },
+	{ english: ["to park", "to pull up"], thai: "จอด", pronunciation: "jaht" },
+	{ english: "", thai: "", pronunciation: "" },
+]
+
 wordsChapter9 = [
 	{ english: "menu", thai: "เมนู", pronunciation: "may-nuh" },
 	{ english: "like to", thai: "อยากจะ", pronunciation: "yahk ja" },
@@ -222,6 +280,7 @@ template = [
 everyLesson = [
 	{ name: "Numbers 1-10", contents: numbers1 },
  	{ name: "Numbers 20-100", contents: numbers2 },
+ 	{ name: "Numbers 100-1,000,000", contents: numbers3 },
 	{ name: "Low consonants 1", contents: lowConsonants1 },
 	{ name: "Low consonants 2", contents: lowConsonants2 },
 	{ name: "Low consonants 3", contents: lowConsonants3 },
@@ -234,5 +293,7 @@ everyLesson = [
 	{ name: "Words from chapter 1", contents: wordsChapter1 },
 	{ name: "Words from chapter 2", contents: wordsChapter2 },
 	{ name: "Words from chapter 3", contents: wordsChapter3 },
+	{ name: "Words from chapter 4", contents: wordsChapter4 },
+	{ name: "Words from chapter 5", contents: wordsChapter5 },
 	{ name: "Words from chapter 9", contents: wordsChapter9 },
 ]
