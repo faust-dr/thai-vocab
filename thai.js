@@ -14,6 +14,7 @@ function init() {
 	hideCongrats();
 	hidePronunciation();
 	hideExplanation();
+	hideAlternateMeanings();
 	next();
 }
 
