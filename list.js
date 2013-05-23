@@ -236,6 +236,41 @@ wordsChapter5 = [
 	{ english: "cost", thai: "ค่า", pronunciation: "kah" },
 	{ english: "petrol", thai: "น้ำมัน", pronunciation: "nam man" },
 	{ english: ["to park", "to pull up"], thai: "จอด", pronunciation: "jaht" },
+]
+wordsChapter6 = [
+	{ english: "orange", thai: "ส้ม", pronunciation: "som" },
+	{ english: "kilo", thai: "โล", pronunciation: "loh" },
+	{ english: "... per kilo", thai: "โลละ", pronunciation: "loh la ..." },
+	{ english: ["to reduce", "to lower"], thai: "ลด", pronunciation: "lod" },
+	{ english: "a little ...", thai: "... หน่อย", pronunciation: "... noy" },
+	{ english: "let's settle for ...", thai: "... ก็แล้วกัน", pronunciation: "... goa läh-o gan" },
+
+	{ english: "this", thai: "นี่", pronunciation: "nih" },
+	{ english: "to be called ...", thai: "เรียกว่า", pronunciation: "rih-ak wah" },
+	{ english: "custard apple", thai: "น้อยหน่า", pronunciation: "noy-nah" },
+	{ english: "pardon?", thai: "อะไรนะ", pronunciation: "a-rai na" },
+	{ english: "to try out", thai: "ลอง", pronunciation: "lohng" },
+	{ english: "to taste", thai: "ชิม", pronunciation: "chim" },
+	{ english: "to be tasty", thai: "อร่อย", pronunciation: "a-roy" },
+	{ english: ["pork", "pig"], thai: "หมู", pronunciation: "muh" },
+	{ english: "charcoal-grilled pork", thai: "หมูย่าง", pronunciation: "muh yahng" },
+	{ english: ["stick", "wood", "skewer"], thai: "ไม็", pronunciation: "mai" },
+	{ english: "to want", thai: "เอา", pronunciation: "to want" },
+	{ english: "rice", thai: "ขาว", pronunciation: "kao" },
+	{ english: "sticky rice", thai: "ข้าวเหนียว", pronunciation: "kao nih-o" },
+	{ english: "packet", thai: "หอ", pronunciation: "hoa" },
+	{ english: ["papaya salad", "som tam"], thai: "ส้มตำ", pronunciation: "som dtam" },
+	{ english: ["hot", "spicy"], thai: "เผ็ด", pronunciation: "pet" },
+	{ english: "bag", thai: "ถุง", pronunciation: "tung" },
+]
+
+wordsChapter7 = [
+	{ english: "", thai: "", pronunciation: "" },
+	{ english: "", thai: "", pronunciation: "" },
+	{ english: "", thai: "", pronunciation: "" },
+	{ english: "", thai: "", pronunciation: "" },
+	{ english: "", thai: "", pronunciation: "" },
+	{ english: "", thai: "", pronunciation: "" },
 	{ english: "", thai: "", pronunciation: "" },
 ]
 
@@ -295,5 +330,7 @@ everyLesson = [
 	{ name: "Words from chapter 3", contents: wordsChapter3 },
 	{ name: "Words from chapter 4", contents: wordsChapter4 },
 	{ name: "Words from chapter 5", contents: wordsChapter5 },
+	{ name: "Words from chapter 6", contents: wordsChapter6 },
+	{ name: "Words from chapter 7", contents: wordsChapter7 },
 	{ name: "Words from chapter 9", contents: wordsChapter9 },
 ]
