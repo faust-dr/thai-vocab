@@ -12,6 +12,7 @@ describe('Thaimemo', function() {
 			setQuery: jasmine.createSpy('setQuery'),
 			setInstructions: jasmine.createSpy('setInstructions'),
 			clearInput: jasmine.createSpy('clearInput'),
+			clearHint: jasmine.createSpy('clearHint'),
 			hideCongrats: jasmine.createSpy('hideCongrats'),
 			hidePronunciation: jasmine.createSpy('hidePronunciation'),
 			hideExplanation: jasmine.createSpy('hideExplanation'),
@@ -23,6 +24,7 @@ describe('Thaimemo', function() {
 			showCongrats: jasmine.createSpy('showCongrats'),
 			showExplanation: jasmine.createSpy('showExplanation'),
 			showAlternateMeanings: jasmine.createSpy('showAlternateMeanings'),
+			showHint: jasmine.createSpy('showHint'),
 		};
 
 		app = Thaimemo.init(uiHandler);
@@ -133,6 +135,11 @@ describe('Thaimemo', function() {
 			expect(uiHandler.showPronunciation).not.toHaveBeenCalled();
 			expect(uiHandler.showCongrats).not.toHaveBeenCalled();
 		});
+
+		it('shows the appropriate hint', function() {
+			app.answer('coll');
+			expect(uiHandler.showHint).toHaveBeenCalled();
+		});
 	});
 
 	describe('user hits enter', function() {
@@ -165,7 +172,8 @@ describe('Thaimemo', function() {
 				expect(uiHandler.clearInput).toHaveBeenCalled();
 			});
 
-			it('hides all the extra info', function() {
+			it('hides all the previous info', function() {
+				expect(uiHandler.clearHint).toHaveBeenCalled();
 				expect(uiHandler.hideCongrats).toHaveBeenCalled();
 				expect(uiHandler.hidePronunciation).toHaveBeenCalled();
 				expect(uiHandler.hideExplanation).toHaveBeenCalled();

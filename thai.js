@@ -244,6 +244,7 @@ Thaimemo = {
 		if(this.answeredCorrectly) {
 			this.nextQuery();
 			this.uiHandler.clearInput();
+			this.uiHandler.clearHint();
 			this.uiHandler.hideCongrats();
 			this.uiHandler.hidePronunciation();
 			this.uiHandler.hideExplanation();
@@ -330,6 +331,7 @@ Thaimemo = {
 			}
 		}
 
+		this.uiHandler.showHint(this.hint(answer));
 		return response;
 	},
 

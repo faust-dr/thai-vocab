@@ -15,6 +15,17 @@ describe('UiHandler', function() {
 		expect($(".instruction")).toContainText('do as i say, not as i do');
 	});
 
+	it('shows the hint', function() {
+		uiHandler.showHint('___');
+		expect($(".hint")).toContainText('___');
+	});
+
+	it('clears the hint', function() {
+		$(".hint").text('try this helpful tip');
+		uiHandler.clearHint();
+		expect($(".hint")).toContainText('');
+	});
+
 	it('shows the pronunciation', function() {
 		uiHandler.showPronunciation('hello');
 		expect($(".pronunciation")).toContainText('hello');

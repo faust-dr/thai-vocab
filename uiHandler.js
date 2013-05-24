@@ -50,9 +50,13 @@ UiHandler = {
 		$(".instruction").text(instructions);
 	},
 
+	showHint: function(hint) {
+		$(".hint").text(hint);
+	},
+
 	showPronunciation: function(pronunciation) {
 		$(".pronunciation").text(pronunciation);
-		$(".pronunciation").show();
+		$(".pronunciation-container").show();
 	},
 
 	showExplanation: function(explanation) {
@@ -70,8 +74,12 @@ UiHandler = {
 		$(".congrats").show();
 	},
 
+	clearHint: function() {
+		$(".hint").text('');
+	},
+
 	hidePronunciation: function() {
-		$(".pronunciation").hide();
+		$(".pronunciation-container").hide();
 	},
 
 	hideExplanation: function() {
@@ -79,7 +87,6 @@ UiHandler = {
 	},
 
 	hideCongrats: function() {
-		console.log('hiding congrats');
 		$(".congrats").hide();
 	},
 
