@@ -228,7 +228,8 @@ Thaimemo = {
 		uiHandler.hideAlternateMeanings();
 		
 		uiHandler.setKeyboardFocus();
-		uiHandler.registerEvents(_.bind(this.evaluateCallback, this));
+		uiHandler.registerTypeEvent(_.bind(this.evaluateCallback, this));
+		uiHandler.registerEnterEvent(_.bind(this.sendEnterCallback, this));
 
 		this.uiHandler = uiHandler;
 
@@ -237,6 +238,17 @@ Thaimemo = {
 	
 	evaluateCallback: function(answer) {
 		this.answer(answer);
+	},
+
+	sendEnterCallback: function() {
+		if(this.answeredCorrectly) {
+			this.nextQuery();
+			this.uiHandler.clearInput();
+			this.uiHandler.hideCongrats();
+			this.uiHandler.hidePronunciation();
+			this.uiHandler.hideExplanation();
+			this.uiHandler.hideAlternateMeanings();
+		}
 	},
 
 	loadFromFile: function(list) {
@@ -295,6 +307,7 @@ Thaimemo = {
 	},
 
 	answer: function(answer) {
+		this.answeredCorrectly = false;
 		var correct = this.isAnswerCorrect(answer);
 		var response = {
 			hint: this.hint(answer),
@@ -302,6 +315,7 @@ Thaimemo = {
 		};
 
 		if(correct) {
+			this.answeredCorrectly = true;
 			this.uiHandler.showPronunciation();
 			this.uiHandler.showCongrats();
 

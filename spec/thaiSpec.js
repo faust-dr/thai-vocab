@@ -1,3 +1,6 @@
+function resetUiHandler() {
+}
+
 describe('Thaimemo', function() {
 	var app;
 	var uiHandler;
@@ -8,12 +11,14 @@ describe('Thaimemo', function() {
 			setupLessonCheckboxes: jasmine.createSpy('setupLessonCheckboxes'),
 			setQuery: jasmine.createSpy('setQuery'),
 			setInstructions: jasmine.createSpy('setInstructions'),
+			clearInput: jasmine.createSpy('clearInput'),
 			hideCongrats: jasmine.createSpy('hideCongrats'),
 			hidePronunciation: jasmine.createSpy('hidePronunciation'),
 			hideExplanation: jasmine.createSpy('hideExplanation'),
 			hideAlternateMeanings: jasmine.createSpy('hideAlternateMeanings'),
 			setKeyboardFocus: jasmine.createSpy('setKeyboardFocus'),
-			registerEvents: jasmine.createSpy('registerEvents'),
+			registerTypeEvent: jasmine.createSpy('registerTypeEvent'),
+			registerEnterEvent: jasmine.createSpy('registerEnterEvent'),
 			showPronunciation: jasmine.createSpy('showPronunciation'),
 			showCongrats: jasmine.createSpy('showCongrats'),
 			showExplanation: jasmine.createSpy('showExplanation'),
@@ -42,7 +47,11 @@ describe('Thaimemo', function() {
 		});
 
 		it('registers the keyup event on the input field with a callback', function() {
-			expect(uiHandler.registerEvents).toHaveBeenCalled();
+			expect(uiHandler.registerTypeEvent).toHaveBeenCalled();
+		});
+
+		it('registers the enter key event on the input field with a callback', function() {
+			expect(uiHandler.registerEnterEvent).toHaveBeenCalled();
 		});
 	});
 
@@ -123,6 +132,45 @@ describe('Thaimemo', function() {
 			expect(app.answer('coll')).toEqual({ hint: 'co__', correct: false });
 			expect(uiHandler.showPronunciation).not.toHaveBeenCalled();
 			expect(uiHandler.showCongrats).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('user hits enter', function() {
+		beforeEach(function() {
+			app.nextQuery();
+			spyOn(app, 'nextQuery');
+		});
+
+		describe('answer is incorrect', function() {
+			it('does not do anything', function() {
+				app.answer('farquard');
+				app.sendEnterCallback();
+				expect(app.nextQuery).not.toHaveBeenCalled();
+			});
+		});
+
+		describe('answer is correct', function() {
+			beforeEach(function() {
+				uiHandler.hideCongrats = jasmine.createSpy('hideCongrats');
+				uiHandler.hidePronunciation = jasmine.createSpy('hidePronunciation');
+				uiHandler.hideExplanation = jasmine.createSpy('hideExplanation');
+				uiHandler.hideAlternateMeanings = jasmine.createSpy('hideAlternateMeanings');
+
+				app.answer('cost');
+				app.sendEnterCallback();
+			});
+
+			it('shows the next query', function() {
+				expect(app.nextQuery).toHaveBeenCalled();
+				expect(uiHandler.clearInput).toHaveBeenCalled();
+			});
+
+			it('hides all the extra info', function() {
+				expect(uiHandler.hideCongrats).toHaveBeenCalled();
+				expect(uiHandler.hidePronunciation).toHaveBeenCalled();
+				expect(uiHandler.hideExplanation).toHaveBeenCalled();
+				expect(uiHandler.hideAlternateMeanings).toHaveBeenCalled();
+			});
 		});
 	});
 
