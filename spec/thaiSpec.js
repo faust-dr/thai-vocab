@@ -115,20 +115,34 @@ describe('Thaimemo', function() {
 			app.nextQuery();
 		});
 
-		it('returns that the answer is correct', function() {
-			expect(app.answer('cost')).toEqual({ hint: 'cost', pronunciation: 'kah', correct: true });
-			expect(uiHandler.showPronunciation).toHaveBeenCalled();
-			expect(uiHandler.showCongrats).toHaveBeenCalled();
+		describe('answer is correct', function() {
+			it('shows that the answer is correct', function() {
+				app.answer('cost');
+				expect(uiHandler.showPronunciation).toHaveBeenCalled();
+				expect(uiHandler.showCongrats).toHaveBeenCalled();
+			});
+
+			describe('user changes the answer to be incorrect', function() {
+				it('it removes the info', function() {
+					uiHandler.hidePronunciation.reset();
+					uiHandler.hideCongrats.reset();
+
+					app.answer('costf');
+
+					expect(uiHandler.hidePronunciation).toHaveBeenCalled();
+					expect(uiHandler.hideCongrats).toHaveBeenCalled();
+				});
+			});
 		});
 
 		it('returns that the answer is incorrect', function() {
-			expect(app.answer('fish')).toEqual({ hint: '____', correct: false });
+			app.answer('fish');
 			expect(uiHandler.showPronunciation).not.toHaveBeenCalled();
 			expect(uiHandler.showCongrats).not.toHaveBeenCalled();
 		});
 
 		it('returns that the answer is partially correct', function() {
-			expect(app.answer('coll')).toEqual({ hint: 'co__', correct: false });
+			app.answer('coll');
 			expect(uiHandler.showPronunciation).not.toHaveBeenCalled();
 			expect(uiHandler.showCongrats).not.toHaveBeenCalled();
 		});

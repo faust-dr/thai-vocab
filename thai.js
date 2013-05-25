@@ -89,15 +89,21 @@ Thaimemo = {
 			correct: correct
 		};
 
+		this.answeredCorrectly = correct;
+
 		if(correct) {
-			this.answeredCorrectly = true;
 			this.uiHandler.showPronunciation();
 			this.uiHandler.showCongrats();
 
-			response.pronunciation = this.pronunciation();
-
 			this.showExplanation();
 			this.showAlternateMeanings();
+
+			response.pronunciation = this.pronunciation();
+		} else {
+			this.uiHandler.hidePronunciation();
+			this.uiHandler.hideCongrats();
+			this.uiHandler.hideExplanation();
+			this.uiHandler.hideAlternateMeanings();
 		}
 
 		if(!this.isParticle()) {
