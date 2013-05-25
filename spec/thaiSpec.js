@@ -1,6 +1,3 @@
-function resetUiHandler() {
-}
-
 describe('Thaimemo', function() {
 	var app;
 	var uiHandler;
@@ -140,16 +137,27 @@ describe('Thaimemo', function() {
 			app.answer('coll');
 			expect(uiHandler.showHint).toHaveBeenCalled();
 		});
+
+		describe('query is particle', function() {
+			it('does not show hints', function() {
+				var testList = [ [ { explanation: "blah", thai: "ฆ", pronunciation: "ko (low)" } ] ];
+				app.load(testList);
+				app.nextQuery();
+
+				app.answer('coll');
+				expect(uiHandler.showHint).not.toHaveBeenCalled();
+			});
+		});
 	});
 
 	describe('user hits enter', function() {
 		beforeEach(function() {
 			app.nextQuery();
-			spyOn(app, 'nextQuery');
 		});
 
 		describe('answer is incorrect', function() {
 			it('does not do anything', function() {
+				spyOn(app, 'nextQuery').andCallThrough();
 				app.answer('farquard');
 				app.sendEnterCallback();
 				expect(app.nextQuery).not.toHaveBeenCalled();
@@ -158,6 +166,7 @@ describe('Thaimemo', function() {
 
 		describe('answer is correct', function() {
 			beforeEach(function() {
+				spyOn(app, 'nextQuery').andCallThrough();
 				uiHandler.hideCongrats = jasmine.createSpy('hideCongrats');
 				uiHandler.hidePronunciation = jasmine.createSpy('hidePronunciation');
 				uiHandler.hideExplanation = jasmine.createSpy('hideExplanation');
@@ -178,6 +187,45 @@ describe('Thaimemo', function() {
 				expect(uiHandler.hidePronunciation).toHaveBeenCalled();
 				expect(uiHandler.hideExplanation).toHaveBeenCalled();
 				expect(uiHandler.hideAlternateMeanings).toHaveBeenCalled();
+			});
+		});
+
+		describe('query is a particle', function() {
+			beforeEach(function() {
+				testList = [ [ { explanation: "it is so", thai: "ค่า", pronunciation: "kah" } ] ];
+				app.load(testList);
+				app.nextQuery();
+				spyOn(app, 'nextQuery').andCallThrough();
+				app.sendEnterCallback();
+			});
+
+			it('does not display the next query', function() {
+				expect(app.nextQuery).not.toHaveBeenCalled();
+			});
+
+			it('displays the relevant information', function() {
+				expect(uiHandler.showCongrats).toHaveBeenCalled();
+				expect(uiHandler.showPronunciation).toHaveBeenCalled();
+				expect(uiHandler.showExplanation).toHaveBeenCalled();
+			});
+
+			describe('when the user hits enter again', function() {
+				beforeEach(function() {
+					app.sendEnterCallback();
+				});
+
+				it('shows the next query', function() {
+					expect(app.nextQuery).toHaveBeenCalled();
+					expect(uiHandler.clearInput).toHaveBeenCalled();
+				});
+
+				it('hides all the previous info', function() {
+					expect(uiHandler.clearHint).toHaveBeenCalled();
+					expect(uiHandler.hideCongrats).toHaveBeenCalled();
+					expect(uiHandler.hidePronunciation).toHaveBeenCalled();
+					expect(uiHandler.hideExplanation).toHaveBeenCalled();
+					expect(uiHandler.hideAlternateMeanings).toHaveBeenCalled();
+				});
 			});
 		});
 	});
