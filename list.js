@@ -331,6 +331,5 @@ everyLesson = [
 	{ name: "Words from chapter 4", contents: wordsChapter4 },
 	{ name: "Words from chapter 5", contents: wordsChapter5 },
 	{ name: "Words from chapter 6", contents: wordsChapter6 },
-	{ name: "Words from chapter 7", contents: wordsChapter7 },
 	{ name: "Words from chapter 9", contents: wordsChapter9 },
 ]
