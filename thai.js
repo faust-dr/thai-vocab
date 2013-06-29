@@ -41,10 +41,9 @@ Thaimemo = {
 	},
 
 	loadFromFile: function(list) {
-		this.outsideFormatLessonList = list;
-		this.load(this.generateLessonList(list));
 		this.uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
 		this.uiHandler.registerCheckboxEvent(_.bind(this.clickCheckboxCallback, this));
+		this.load(this.generateLessonList(list));
 	},
 
 	load: function(listToLoad) {
