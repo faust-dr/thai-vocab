@@ -10,6 +10,7 @@ Thaimemo = {
 		uiHandler.setKeyboardFocus();
 		uiHandler.registerTypeEvent(_.bind(this.evaluateCallback, this));
 		uiHandler.registerEnterEvent(_.bind(this.sendEnterCallback, this));
+		uiHandler.registerSkipEvent(_.bind(this.skipCallback, this));
 
 		this.uiHandler = uiHandler;
 
@@ -22,6 +23,11 @@ Thaimemo = {
 
 	sendEnterCallback: function() {
 		this.finishQuery();
+	},
+
+	skipCallback: function() {
+		this.uiHandler.showPronunciation();
+		this.uiHandler.typeInAnswerForUser(this.correctAnswer());
 	},
 
 	clickCheckboxCallback: function(selectedLessons) {

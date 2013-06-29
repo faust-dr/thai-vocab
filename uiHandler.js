@@ -37,6 +37,11 @@ UiHandler = {
 		$("input[type=checkbox]").click(_.bind(this.checkboxClicked, this));
 	},
 
+	registerSkipEvent: function(callback) {
+		this.skipCallback = callback;
+		$("input.skip").click(_.bind(this.sendSkip, this));
+	},
+
 	sendAnswer: function() {
 		if(!this.evaluateCallback) {
 			throw("No type callback method set from UiHandler to Thaimemo.");
@@ -51,6 +56,13 @@ UiHandler = {
 		this.sendEnterCallback();
 	},
 	
+	sendSkip: function() {
+		if(!this.skipCallback) {
+			throw("No skip callback method set from UiHandler to Thaimemo.");
+		}
+		this.skipCallback();
+	},
+
 	checkboxClicked: function() {
 		if(!this.checkboxCallback) {
 			throw("No clicking checkbox callback method set from UiHandler to Thaimemo.");
@@ -115,4 +127,9 @@ UiHandler = {
 	hideAlternateMeanings: function() {
 		$(".alternate-meanings").hide();
 	},
+
+	typeInAnswerForUser: function(answer) {
+		$("input.answer").val(answer);
+		this.setKeyboardFocus();
+	}
 };

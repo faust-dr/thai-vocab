@@ -18,7 +18,9 @@ describe('Thaimemo', function() {
 			registerTypeEvent: jasmine.createSpy('registerTypeEvent'),
 			registerEnterEvent: jasmine.createSpy('registerEnterEvent'),
 			registerCheckboxEvent: jasmine.createSpy('registerCheckboxEvent'),
+			registerSkipEvent: jasmine.createSpy('registerSkipEvent'),
 			showPronunciation: jasmine.createSpy('showPronunciation'),
+			typeInAnswerForUser: jasmine.createSpy('typeInAnswerForUser'),
 			showCongrats: jasmine.createSpy('showCongrats'),
 			showExplanation: jasmine.createSpy('showExplanation'),
 			showAlternateMeanings: jasmine.createSpy('showAlternateMeanings'),
@@ -48,6 +50,10 @@ describe('Thaimemo', function() {
 
 		it('registers the enter key event on the input field with a callback', function() {
 			expect(uiHandler.registerEnterEvent).toHaveBeenCalled();
+		});
+
+		it('registers the skip button event with a callback', function() {
+			expect(uiHandler.registerSkipEvent).toHaveBeenCalled();
 		});
 	});
 
@@ -302,6 +308,21 @@ describe('Thaimemo', function() {
 			app.nextQuery();
 			app.answer('cost');
 			expect(uiHandler.showAlternateMeanings).not.toHaveBeenCalled();
+		});
+	});
+
+	describe('skipping a word', function() {
+		beforeEach(function() {
+			app.nextQuery();
+		});
+
+		it('shows the answer', function() {
+			app.skipCallback();
+
+			expect(uiHandler.showPronunciation).toHaveBeenCalled();
+			expect(uiHandler.typeInAnswerForUser).toHaveBeenCalledWith('cost');
+
+			expect(uiHandler.showCongrats).not.toHaveBeenCalled();
 		});
 	});
 });

@@ -67,4 +67,13 @@ describe('UiHandler', function() {
 		uiHandler.showCongrats('u rule');
 		expect($(".congrats")).toContainText('u rule');
 	});
+
+	it('shows the answer in the input box', function() {
+		spyOn(uiHandler, 'setKeyboardFocus');
+
+		uiHandler.typeInAnswerForUser('lololol');
+
+		expect($("input.answer").val()).toBe('lololol');
+		expect(uiHandler.setKeyboardFocus).toHaveBeenCalled();
+	});
 });

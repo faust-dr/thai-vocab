@@ -68,6 +68,12 @@ input.answer {
 	right: 30%;
 }
 
+input.skip {
+	position: relative;
+	left: 30%;
+	right: 30%;
+}
+
 h1 {
 	padding-bottom: 10px;
 }
