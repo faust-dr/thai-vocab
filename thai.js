@@ -39,8 +39,7 @@ Thaimemo = {
 	},
 
 	loadLessonTitles: function(list) {
-		this.lessonTitles = _.pluck(list, 'name');
-		uiHandler.setupLessonCheckboxes(this.lessonTitles);
+		uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
 	},
 
 	loadFromFile: function(list) {
