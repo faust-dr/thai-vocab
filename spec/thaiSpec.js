@@ -319,7 +319,7 @@ describe('Thaimemo', function() {
 		it('shows the answer', function() {
 			app.skipCallback();
 
-			expect(uiHandler.showPronunciation).toHaveBeenCalled();
+			expect(uiHandler.showPronunciation).toHaveBeenCalledWith('kah');
 			expect(uiHandler.typeInAnswerForUser).toHaveBeenCalledWith('cost');
 
 			expect(uiHandler.showCongrats).not.toHaveBeenCalled();

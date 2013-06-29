@@ -26,7 +26,7 @@ Thaimemo = {
 	},
 
 	skipCallback: function() {
-		this.uiHandler.showPronunciation();
+		this.uiHandler.showPronunciation(this.currentQuery.pronunciation);
 		this.uiHandler.typeInAnswerForUser(this.correctAnswer());
 	},
 
@@ -113,7 +113,7 @@ Thaimemo = {
 		this.answeredCorrectly = correct;
 
 		if(correct) {
-			this.uiHandler.showPronunciation();
+			this.uiHandler.showPronunciation(this.currentQuery.pronunciation);
 			this.uiHandler.showCongrats();
 
 			this.showExplanation();
