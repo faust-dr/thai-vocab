@@ -57,10 +57,6 @@ describe('Thaimemo', function() {
 			app.loadFromFile(allLessons);
 		});
 
-		it('sets up lesson checkboxes', function() {
-			expect(uiHandler.setupLessonCheckboxes).toHaveBeenCalledWith(['Lesson A', 'Lesson B']);
-		});
-
 		it('registers the event for clicking a checkbox', function() {
 			expect(uiHandler.registerCheckboxEvent).toHaveBeenCalled();
 		});

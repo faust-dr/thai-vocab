@@ -16,7 +16,9 @@
 			function init() {
 				uiHandler = UiHandler.init();
 				app = Thaimemo.init(uiHandler);
+				app.loadLessonTitles(everyLesson);
 				app.loadFromFile(everyLesson);
+
 				app.nextQuery();
 			}
 		</script>

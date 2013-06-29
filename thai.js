@@ -2,13 +2,11 @@ Thaimemo = {
 	init: function(uiHandler) {
 		this.currentQuery = undefined;
 
-		uiHandler.setupLessonCheckboxes();
-
 		uiHandler.hideCongrats();
 		uiHandler.hidePronunciation();
 		uiHandler.hideExplanation();
 		uiHandler.hideAlternateMeanings();
-		
+
 		uiHandler.setKeyboardFocus();
 		uiHandler.registerTypeEvent(_.bind(this.evaluateCallback, this));
 		uiHandler.registerEnterEvent(_.bind(this.sendEnterCallback, this));
@@ -40,8 +38,12 @@ Thaimemo = {
 		this.nextQuery();
 	},
 
+	loadLessonTitles: function(list) {
+		this.lessonTitles = _.pluck(list, 'name');
+		uiHandler.setupLessonCheckboxes(this.lessonTitles);
+	},
+
 	loadFromFile: function(list) {
-		this.uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
 		this.uiHandler.registerCheckboxEvent(_.bind(this.clickCheckboxCallback, this));
 		this.load(this.generateLessonList(list));
 	},
