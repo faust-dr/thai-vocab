@@ -17,6 +17,7 @@ describe('Thaimemo', function() {
 			setKeyboardFocus: jasmine.createSpy('setKeyboardFocus'),
 			registerTypeEvent: jasmine.createSpy('registerTypeEvent'),
 			registerEnterEvent: jasmine.createSpy('registerEnterEvent'),
+			registerCheckboxEvent: jasmine.createSpy('registerCheckboxEvent'),
 			showPronunciation: jasmine.createSpy('showPronunciation'),
 			showCongrats: jasmine.createSpy('showCongrats'),
 			showExplanation: jasmine.createSpy('showExplanation'),
@@ -30,10 +31,6 @@ describe('Thaimemo', function() {
 	});
 
 	describe('initialize', function() {
-		it('sets up lesson checkboxes', function() {
-			expect(uiHandler.setupLessonCheckboxes).toHaveBeenCalled();
-		});
-
 		it('hides Congrats, Pronunciation, Explanation, Alternate Meanings', function() {
 			expect(uiHandler.hideCongrats).toHaveBeenCalled();
 			expect(uiHandler.hidePronunciation).toHaveBeenCalled();
@@ -51,6 +48,36 @@ describe('Thaimemo', function() {
 
 		it('registers the enter key event on the input field with a callback', function() {
 			expect(uiHandler.registerEnterEvent).toHaveBeenCalled();
+		});
+	});
+
+	describe('loading a lesson list', function() {
+		var allLessons = [ { name: "Lesson A", contents: [ { english: "abc", thai: "ฟิแ"} ] }, { name: "Lesson B", contents: [ 'blub' ] } ];
+		beforeEach(function() {
+			app.loadFromFile(allLessons);
+		});
+
+		it('sets up lesson checkboxes', function() {
+			expect(uiHandler.setupLessonCheckboxes).toHaveBeenCalledWith(['Lesson A', 'Lesson B']);
+		});
+
+		it('registers the event for clicking a checkbox', function() {
+			expect(uiHandler.registerCheckboxEvent).toHaveBeenCalled();
+		});
+
+		it('filters the list', function() {
+			app.filterLessons(allLessons, {
+				'Lesson A': true,
+				'Lesson B': false,
+			});
+
+			expect(app.lessons).toEqual([ [ { english: "abc", thai: "ฟิแ"} ] ]);
+		});
+
+		it('fetches the next query', function() {
+			spyOn(app, 'nextQuery');
+			app.filterLessons(allLessons, { 'Lesson A': true, 'Lesson B': false, });
+			expect(app.nextQuery).toHaveBeenCalled();
 		});
 	});
 

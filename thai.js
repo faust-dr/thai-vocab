@@ -26,8 +26,25 @@ Thaimemo = {
 		this.finishQuery();
 	},
 
+	clickCheckboxCallback: function(selectedLessons) {
+		this.filterLessons(everyLesson, selectedLessons);
+	},
+
+	filterLessons: function(all, selected) {
+		var lessonsToLoad =	_.select(all, function(lesson) {
+			return _.find(all, function(l) {
+				return selected[lesson.name];
+			});
+		});
+		this.loadFromFile(lessonsToLoad);
+		this.nextQuery();
+	},
+
 	loadFromFile: function(list) {
+		this.outsideFormatLessonList = list;
 		this.load(this.generateLessonList(list));
+		this.uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
+		this.uiHandler.registerCheckboxEvent(_.bind(this.clickCheckboxCallback, this));
 	},
 
 	load: function(listToLoad) {
@@ -35,20 +52,9 @@ Thaimemo = {
 	},
 
 	generateLessonList: function(lessons) {
-		var activeLessons = 
-			_.compact(
-				_.map($(".lessons .lesson input"), function(lessonSelector) {
-			return lessonSelector.checked && lessonSelector.name;
-		})
-		);
-
-		list = _.compact(_.map(lessons, function(lesson) {
-			// if(_.contains(activeLessons, lesson.name)) {
-				return lesson.contents;
-			// }
+		return _.compact(_.map(lessons, function(lesson) {
+			return lesson.contents;
 		}));
-
-		return list;
 	},
 
 	nextQuery: function() {
@@ -57,14 +63,23 @@ Thaimemo = {
 			return false;
 		}
 
-		var typeId = this.random(this.lessons.length);
-		var id = this.random(this.lessons[typeId].length);
-		var lesson = this.lessons[typeId];
-		var data = lesson[id];
-		this.currentQuery = data;
+		var lesson = this.getRandomLesson();
+		var entry = this.getRandomQueryFromLesson(lesson);
 
-		this.uiHandler.setQuery(data.thai);
+		this.currentQuery = entry;
+
+		this.uiHandler.setQuery(entry.thai);
 		this.uiHandler.setInstructions(this.instructions());
+	},
+
+	getRandomLesson: function() {
+		var id = this.random(this.lessons.length);
+		return this.lessons[id];
+	},
+
+	getRandomQueryFromLesson: function(lesson) {
+		var id = this.random(lesson.length);
+		return lesson[id];
 	},
 
 	instructions: function() {

@@ -3,7 +3,10 @@ UiHandler = {
 		return this;
 	},
 
-	setupLessonCheckboxes: function() {
+	setupLessonCheckboxes: function(lessons) {
+		_.each(lessons, function(lesson) {
+			$(".lessons").append('<div class="lesson"><input type="checkbox" name="' + lesson + '" checked="true">' + lesson + '</div>');
+		});
 	},
 
 	setKeyboardFocus: function() {
@@ -28,6 +31,11 @@ UiHandler = {
 		}, this));
 	},
 
+	registerCheckboxEvent: function(callback) {
+		this.checkboxCallback = callback;
+		$("input[type=checkbox]").click(_.bind(this.checkboxClicked, this));
+	},
+
 	sendAnswer: function() {
 		if(!this.evaluateCallback) {
 			throw("No type callback method set from UiHandler to Thaimemo.");
@@ -40,6 +48,19 @@ UiHandler = {
 			throw("No enter callback method set from UiHandler to Thaimemo.");
 		}
 		this.sendEnterCallback();
+	},
+	
+	checkboxClicked: function() {
+		if(!this.checkboxCallback) {
+			throw("No clicking checkbox callback method set from UiHandler to Thaimemo.");
+		}
+
+		var lessons = {};
+		_.each($("input[type=checkbox]"), function(checkbox) {
+			lessons[checkbox.name] = checkbox.checked;
+		});
+
+		this.checkboxCallback(lessons);
 	},
 
 	setQuery: function(query) {
