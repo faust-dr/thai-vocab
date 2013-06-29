@@ -39,11 +39,11 @@ Thaimemo = {
 	},
 
 	loadLessonTitles: function(list) {
-		uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
+		this.uiHandler.setupLessonCheckboxes(_.pluck(list, 'name'));
+		this.uiHandler.registerCheckboxEvent(_.bind(this.clickCheckboxCallback, this));
 	},
 
 	loadFromFile: function(list) {
-		this.uiHandler.registerCheckboxEvent(_.bind(this.clickCheckboxCallback, this));
 		this.load(this.generateLessonList(list));
 	},
 

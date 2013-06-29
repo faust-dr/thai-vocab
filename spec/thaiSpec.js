@@ -51,14 +51,21 @@ describe('Thaimemo', function() {
 		});
 	});
 
-	describe('loading a lesson list', function() {
+	describe('loading the lesson titles', function() {
 		var allLessons = [ { name: "Lesson A", contents: [ { english: "abc", thai: "ฟิแ"} ] }, { name: "Lesson B", contents: [ 'blub' ] } ];
 		beforeEach(function() {
-			app.loadFromFile(allLessons);
+			app.loadLessonTitles(allLessons);
 		});
 
 		it('registers the event for clicking a checkbox', function() {
 			expect(uiHandler.registerCheckboxEvent).toHaveBeenCalled();
+		});
+	});
+
+	describe('loading a lesson list', function() {
+		var allLessons = [ { name: "Lesson A", contents: [ { english: "abc", thai: "ฟิแ"} ] }, { name: "Lesson B", contents: [ 'blub' ] } ];
+		beforeEach(function() {
+			app.loadFromFile(allLessons);
 		});
 
 		it('filters the list', function() {
