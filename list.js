@@ -308,9 +308,9 @@ wordsChapter9 = [
 	{ english: "can i have the bill?", thai: "เช็คบิลด้วย", pronunciation: "chek bin duh-y" },
 ]
 
-template = [
-	{ english: "", thai: "", pronunciation: "" },
-]
+// template = [
+// 	{ english: "", thai: "", pronunciation: "" },
+// ]
 
 everyLesson = [
 	{ name: "Numbers 1-10", contents: numbers1 },
