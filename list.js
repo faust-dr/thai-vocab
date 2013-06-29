@@ -264,15 +264,15 @@ wordsChapter6 = [
 	{ english: "bag", thai: "ถุง", pronunciation: "tung" },
 ]
 
-wordsChapter7 = [
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-	{ english: "", thai: "", pronunciation: "" },
-]
+// wordsChapter7 = [
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// 	{ english: "", thai: "", pronunciation: "" },
+// ]
 
 wordsChapter9 = [
 	{ english: "menu", thai: "เมนู", pronunciation: "may-nuh" },
