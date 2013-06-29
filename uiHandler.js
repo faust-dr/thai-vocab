@@ -4,6 +4,7 @@ UiHandler = {
 	},
 
 	setupLessonCheckboxes: function(lessons) {
+		$(".lessons").text('');
 		_.each(lessons, function(lesson) {
 			$(".lessons").append('<div class="lesson"><input type="checkbox" name="' + lesson + '" checked="true">' + lesson + '</div>');
 		});

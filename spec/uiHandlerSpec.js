@@ -12,6 +12,21 @@ describe('UiHandler', function() {
 		expect($(".lessons .lesson input[checked=true]").length).toBe(2);
 	});
 
+	describe('when there are already checkboxes', function() {
+		beforeEach(function() {
+			uiHandler.setupLessonCheckboxes(['Lesson 1', 'Lesson 2 & 3']);
+		});
+
+		it('deletes those first', function() {
+			uiHandler.setupLessonCheckboxes(['Lesson A', 'Lesson B']);
+
+			expect($(".lessons")).not.toContainText('Lesson 1');
+			expect($(".lessons")).not.toContainText('Lesson 2 & 3');
+			expect($(".lessons")).toContainText('Lesson A');
+			expect($(".lessons")).toContainText('Lesson B');
+		});
+	});
+
 	it('sets the query', function() {
 		uiHandler.setQuery('รื');
 		expect($(".thai")).toContainText('รื');
